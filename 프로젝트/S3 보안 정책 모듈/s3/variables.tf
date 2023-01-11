@@ -11,11 +11,15 @@ variable "src_private_ips" {
 }
 
 variable "policy" {
-  type    = map(any)
-  default = {}
+  type    = string
+  default = ""
 }
 
 variable "principal_arns" {
+  type = list(string)
+}
+
+variable "user_ids" {
   type = list(string)
 }
 

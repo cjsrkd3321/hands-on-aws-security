@@ -148,39 +148,67 @@ data "aws_iam_policy_document" "default" {
     }
   }
 
+  # UserId
+  statement {
+    sid    = "UserIds"
+    effect = "Deny"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+      # "s3:ListBucket"
+    ]
+
+    resources = [
+      #   aws_s3_bucket.this.arn,
+      "${aws_s3_bucket.this.arn}/*",
+    ]
+
+    condition {
+      test     = "StringNotEquals"
+      variable = "aws:userid"
+      values   = var.user_ids
+    }
+  }
+
   # 공인 IP 및 사설 IP 제한
-  #   statement {
-  #     sid = "PublicIPsAndPrivateIPs"
-  #     effect = "Deny"
+    statement {
+      sid = "PublicIPsAndPrivateIPs"
+      effect = "Deny"
 
-  #     principals {
-  #       type        = "AWS"
-  #       identifiers = ["*"]
-  #     }
+      principals {
+        type        = "AWS"
+        identifiers = ["*"]
+      }
 
-  #     actions = [
-  #       "s3:GetObject",
-  #       "s3:PutObject",
-  #       # "s3:ListBucket",
-  #     ]
+      actions = [
+        "s3:GetObject",
+        "s3:PutObject",
+        # "s3:ListBucket",
+      ]
 
-  #     resources = [
-  #       aws_s3_bucket.this.arn,
-  #       "${aws_s3_bucket.this.arn}/*",
-  #     ]
+      resources = [
+        "${aws_s3_bucket.this.arn}/*",
+      ]
 
-  #     condition {
-  #       test     = "NotIpAddressIfExists"
-  #       variable = "aws:SourceIp"
-  #       values   = var.src_public_ips
-  #     }
+      condition {
+        test     = "NotIpAddressIfExists"
+        variable = "aws:SourceIp"
+        values   = var.src_public_ips
+      }
 
-  #     condition {
-  #       test     = "NotIpAddressIfExists"
-  #       variable = "aws:VpcSourceIp"
-  #       values   = var.src_private_ips
-  #     }
-  #   }
+      condition {
+        test     = "NotIpAddressIfExists"
+        variable = "aws:VpcSourceIp"
+        values   = var.src_private_ips
+      }
+    }
 
   # 접근 가능한 VPC 제한
   # condition {
@@ -213,5 +241,5 @@ data "aws_iam_policy_document" "default" {
 
 data "aws_iam_policy_document" "this" {
   source_policy_documents   = [data.aws_iam_policy_document.default.json]
-  override_policy_documents = [jsonencode(var.policy)]
+  override_policy_documents = [var.policy]
 }
