@@ -1,0 +1,36 @@
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAQAJ4MWDUDLFAMZYB7:admin",
+        "arn": "arn:aws:sts::ACCOUNT_ID:assumed-role/rextest/admin",
+        "accountId": "ACCOUNT_ID"
+    },
+    "eventTime": "2022-12-23T01:20:58Z",
+    "eventSource": "signin.amazonaws.com",
+    "eventName": "ConsoleLogin",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "IPADDR",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+    "requestParameters": null,
+    "responseElements": {
+        "ConsoleLogin": "Success"
+    },
+    "additionalEventData": {
+        "LoginTo": "https://console.aws.amazon.com/console/home",
+        "MobileVersion": "No",
+        "MFAUsed": "No",
+        "SamlProviderArn": "arn:aws:iam::ACCOUNT_ID:saml-provider/rextest"
+    },
+    "eventID": "0e50bee2-7ff0-41ce-95e2-70398c2ac21a",
+    "readOnly": false,
+    "eventType": "AwsConsoleSignIn",
+    "managementEvent": true,
+    "recipientAccountId": "ACCOUNT_ID",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "signin.aws.amazon.com"
+    }
+}

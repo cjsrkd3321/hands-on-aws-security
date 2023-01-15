@@ -1,0 +1,54 @@
+{
+    "channel": "#alarm",
+    "attachments": [
+        {
+            "color": "#30db3f",
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "EVENTNAME"
+                    }
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "section",
+                    "fields": [
+                        {"type": "mrkdwn", "text": "*시간:*\nEVENTTIME"},
+                        {
+                            "type": "mrkdwn",
+                            "text": "*IP:*\nIP"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*계정:*\nACCOUNT"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*종류:*\nUSER_TYPE"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*사용자:*\nARN"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*이름:*\nUSER_NAME"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*MFA:*\nMFA"
+                        },
+                        {
+                            "type": "mrkdwn",
+                            "text": "*SWITCH_FROM:*\nSWITCH_FROM"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
