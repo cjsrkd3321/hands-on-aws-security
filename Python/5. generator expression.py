@@ -4,7 +4,7 @@ import csv
 
 CSV_NAME = "test.csv"
 
-# 현재 메모리 사용량 출력 함수
+# 현재 메모리 사용량 출력 함수 (Current memory usage output function)
 def memory_usage(message: str = "debug"):
     # current process RAM usage
     p = psutil.Process()
@@ -31,12 +31,12 @@ memory_usage("START")
 # list_comp = [i for i in range(0, 1000000)]  # type: ignore
 # memory_usage("List Comprehension")
 
-# print(list_comp[-1])  # 인덱싱 가능
+# print(list_comp[-1])  # 인덱싱 가능 (indexable)
 
 # gen_exp = (i for i in range(0, 1000000))
 # memory_usage("Generator Expression")
 
-# print(gen_exp[-1])  # 인덱싱 불가능
+# print(gen_exp[-1])  # 인덱싱 불가능 (Unable to index)
 
 # memory_usage("END")
 

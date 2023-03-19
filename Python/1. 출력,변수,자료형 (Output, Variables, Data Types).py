@@ -1,10 +1,10 @@
-# 출력
+# 출력 (output)
 print("HELLO WORLD!")
 
-# 변수
+# 변수 (variables)
 variable = "test"
 
-# 기본 자료형
+# 기본 자료형 (default data type)
 # 숫자(number)
 a = 1
 a = a + 1
@@ -55,14 +55,14 @@ f3[0]
 # None
 None
 
-# 출력 포맷팅
+# 출력 포맷팅 (formatting)
 print("asdf")
 print("%s" % "asdf")
 print("{}".format("asdf"))
 test = "asdf"
 print(f"{test}")
 
-# 타입 변환
+# 타입 변환 (type conversion)
 type(None)
 type(1)
 int(1)
@@ -72,7 +72,7 @@ tuple([])
 list(())
 list({1: 2, 3: 4})
 
-# 튜플은 추가가 안된다고 하지 않았나요?
+# 튜플은 추가가 안된다고 하지 않았나요? (Didn't you say you can't add tuples?)
 l: list = []
 id(l)
 l.append(1)

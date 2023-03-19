@@ -3,7 +3,7 @@
 # Run Python File in Terminal -> Keybinding
 # 원하는 키 입력
 
-# 반복문
+# 반복문 (Repeat)
 # while True:
 #     print(1)
 #     break
@@ -23,7 +23,7 @@
 #     # continue
 #     # break
 
-# 제어문(조건문)
+# 제어문(조건문) (Control(Condition))
 # test = "asdf"
 # b = 2
 # c = False

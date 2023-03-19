@@ -60,6 +60,7 @@ data "aws_iam_policy_document" "default" {
     ]
 
     # 버킷 소유자에게 모든 권한 부여하는거 아니면 거부
+    # Grant or deny all rights to the bucket owner.
     condition {
       test     = "StringNotEquals"
       variable = "s3:x-amz-acl"
@@ -86,6 +87,7 @@ data "aws_iam_policy_document" "default" {
     ]
 
     # HTTPS 아니면 거부
+    # HTTPS or Reject
     condition {
       test     = "Bool"
       variable = "aws:SecureTransport"
@@ -111,7 +113,8 @@ data "aws_iam_policy_document" "default" {
       "${aws_s3_bucket.this.arn}/*",
     ]
 
-    # TLS 버전 1.2 이하 거부
+    # TLS 버전 1.2 미만 거부
+    # Reject below TLS version 1.2
     condition {
       test     = "NumericLessThan"
       variable = "s3:TlsVersion"
@@ -120,6 +123,7 @@ data "aws_iam_policy_document" "default" {
   }
 
   # 실제 접근 가능한 사용자 정의
+  # Customize real-world accessible
   statement {
     sid    = "PrincipalArns"
     effect = "Deny"
@@ -177,7 +181,8 @@ data "aws_iam_policy_document" "default" {
     }
   }
 
-  # 공인 IP 및 사설 IP 제한
+    # 공인 IP 및 사설 IP 제한
+    # Restrictions on Public and Private IP restrictions
     statement {
       sid = "PublicIPsAndPrivateIPs"
       effect = "Deny"
@@ -211,6 +216,7 @@ data "aws_iam_policy_document" "default" {
     }
 
   # 접근 가능한 VPC 제한
+  # Restrict accessible VPCs
   # condition {
   #   test     = "StringNotEquals"
   #   variable = "aws:SourceVpc"
@@ -218,6 +224,7 @@ data "aws_iam_policy_document" "default" {
   # }
 
   # 접근 가능한 VPC Endpoint 제한
+  # Restrict accessible VPC Endpoint
   # condition {
   #   test     = "StringNotEquals"
   #   variable = "aws:SourceVpce"
@@ -225,6 +232,7 @@ data "aws_iam_policy_document" "default" {
   # }
 
   # 조직을 사용하는 경우
+  # If you use organization
   # condition {
   #   test = "StringNotEquals"
   #   variable = "aws:PrincipalOrgID"
@@ -232,6 +240,7 @@ data "aws_iam_policy_document" "default" {
   # }
 
   # 보안 주체에 연결된 태그 비교
+  # Compare tags associated with security principal
   # condition {
   #   test = "StringNotEquals"
   #   variable = "aws:PrincipalTag/태그키"

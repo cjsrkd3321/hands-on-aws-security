@@ -31,15 +31,15 @@ def lambda_handler(event, _):
         region = detail["awsRegion"]
 
         actor = actors[evt](CHANNEL, detail, region, SOURCE_IPS)
-        # 성공한 경우에만 로그를 받는 정책
+        # Policy to receive logs only if successful
         if not actor.is_succeeded():
             return
 
-        # 구문 분석 후 메세지 반환
+        # Return message after parsing
         msg = actor.parse()
-        # 취약 여부 판단
+        # Determining Vulnerability
         if actor.is_vulnerable():
-            # 조치 후 성공 여부 출력(True, False, None -> 조치가 없는 경우)
+            # Output whether succeeded after remediation (True, False, None -> If no remediation)
             is_remediated = actor.remediate()
             fields = msg["attachments"][0]["blocks"][-1]["fields"]
             fields.append({"type": "mrkdwn", "text": f"*조치여부*:\n{is_remediated}"})

@@ -1,7 +1,7 @@
 import psutil
 
 
-# 현재 메모리 사용량 출력 함수
+# 현재 메모리 사용량 출력 함수 (Current memory usage output function)
 def memory_usage(message: str = "debug"):
     # current process RAM usage
     p = psutil.Process()
