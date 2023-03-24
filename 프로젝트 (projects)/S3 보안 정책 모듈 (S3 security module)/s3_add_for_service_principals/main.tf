@@ -243,6 +243,12 @@ data "aws_iam_policy_document" "default" {
         variable = "aws:PrincipalIsAWSService"
         values   = ["false"]
       }
+
+      condition {
+      test = "BoolIfExists"
+      variable = "aws:ViaAWSService"
+      values   = ["false"]
+    }
     }
 
   # 접근 가능한 VPC 제한
