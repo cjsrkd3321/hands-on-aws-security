@@ -187,7 +187,7 @@ data "aws_iam_policy_document" "default" {
     ]
 
     condition {
-      test     = "StringNotEqualsIfExists"
+      test     = "StringNotEquals"
       variable = "aws:userid"
       values   = var.user_ids
     }
