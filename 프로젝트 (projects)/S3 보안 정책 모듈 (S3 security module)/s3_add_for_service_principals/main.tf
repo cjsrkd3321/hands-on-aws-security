@@ -152,10 +152,16 @@ data "aws_iam_policy_document" "default" {
     }
 
     condition {
-        test = "BoolIfExists"
-        variable = "aws:PrincipalIsAWSService"
-        values   = ["false"]
-      }
+      test = "BoolIfExists"
+      variable = "aws:PrincipalIsAWSService"
+      values   = ["false"]
+    }
+
+    condition {
+      test = "BoolIfExists"
+      variable = "aws:ViaAWSService"
+      values   = ["false"]
+    }
   }
 
   # UserId
@@ -187,10 +193,16 @@ data "aws_iam_policy_document" "default" {
     }
 
     condition {
-        test = "BoolIfExists"
-        variable = "aws:PrincipalIsAWSService"
-        values   = ["false"]
-      }
+      test = "BoolIfExists"
+      variable = "aws:PrincipalIsAWSService"
+      values   = ["false"]
+    }
+
+    condition {
+      test = "BoolIfExists"
+      variable = "aws:ViaAWSService"
+      values   = ["false"]
+    }
   }
 
     # 공인 IP 및 사설 IP 제한
