@@ -146,7 +146,7 @@ data "aws_iam_policy_document" "default" {
     ]
 
     condition {
-      test     = "ArnNotEquals"
+      test     = "ArnNotEqualsIfExists"
       variable = "aws:PrincipalArn"
       values   = var.principal_arns
     }
@@ -181,7 +181,7 @@ data "aws_iam_policy_document" "default" {
     ]
 
     condition {
-      test     = "StringNotEquals"
+      test     = "StringNotEqualsIfExists"
       variable = "aws:userid"
       values   = var.user_ids
     }
