@@ -1,0 +1,21 @@
+[설치할 extension 목록]
+Boto3typed.boto3-ide
+esbenp.prettier-vscode
+ms-python.python
+ms-python.vscode-pylance
+ms-python.black-formatter
+hashicorp.terraform
+PKief.material-icon-theme
+Equinusocio.vsc-material-theme
+codezombiech.gitignore
+oderwat.indent-rainbow
+
+[아래 순서로 적용]
+1. settings(cmd(ctrl) + ,)
+2. default formatter 검색
+3. user(사용자 레벨) 또는 workspace(현재 열린 폴더 레벨)
+4. shift + cmd(ctrl) + p
+5. Add gitignore 입력 및 엔터
+6. Terraform 검색 및 적용
+7. Python 검색 및 적용(append)
+4. cmd + shift + p → reload window 엔터

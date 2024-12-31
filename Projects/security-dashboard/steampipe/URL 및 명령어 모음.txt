@@ -1,0 +1,45 @@
+[참고 URL]
+AWS 조직에서 사용: https://steampipe.io/docs/guides/aws-orgs
+동시성과 제한: https://steampipe.io/docs/guides/limiter
+환경변수: https://steampipe.io/docs/reference/env-vars/overview
+
+[steampipe 설치]
+https://steampipe.io/downloads
+
+[plugin 모음]
+https://hub.steampipe.io/
+
+[AWS plugin 설치 및 설정]
+https://hub.steampipe.io/plugins/turbot/aws#install
+
+[steampipe 서비스 상태 확인]
+steampipe service status
+
+[DB 비밀번호 확인]
+# https://steampipe.io/docs/reference/env-vars/steampipe_database_password
+steampipe service status --show-password
+
+[steampipe 서비스 재시작]
+steampipe service restart
+
+[steampipe 서버 모드로 동작]
+steampipe service start
+steampipe service start --database-listen network (기본 설정)
+steampipe service start --foreground (도커로 실행하는 경우 설정 필요)
+
+[plugin 설치 명령어]
+steampipe plugin install [이름]
+steampipe plugin install aws
+
+[plugin 업데이트 명령어]
+steampipe plugin update [이름]
+steampipe plugin update --all
+
+[cli에서 쿼리]
+steampipe query
+
+[IAM user 목록 보기]
+select * from aws_iam_user
+
+[steampipe 캐시 초기화]
+.cache clear
